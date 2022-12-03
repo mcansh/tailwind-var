@@ -1,0 +1,30 @@
+{
+  "name": "@mcansh/tailwind-var",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "ts-extras": "^0.11.0"
+  }
+}
