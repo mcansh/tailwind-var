@@ -1,15 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tailwind CSS Variables</title>
-  <link rel="stylesheet" href="./app/styles/app.css">
-</head>
-<body>
-  <h1 class="text-4xl text-center py-4" style="
-    color: var(--gray-200);
-    background: var(--sky-400);
-  ">sup</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind CSS Variables</title>
+    <link rel="stylesheet" href="./dist/index.css" />
+  </head>
+  <body
+    class="flex flex-col h-screen justify-center items-center"
+    style="color: var(--gray-200); background: var(--sky-400)"
+  >
+    <h1
+      class="bg-white text-black font-mono px-2 w-max text-4xl py-4 rounded-sm"
+    >
+      @mcansh/tailwind-var
+    </h1>
+
+    <div class="mt-4">
+      <button
+        type="button"
+        class="inline-flex items-center rounded-md border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        get random color
+      </button>
+    </div>
+
+    <script type="module">
+      let colorNames = [
+        "slate",
+        "gray",
+        "zinc",
+        "neutral",
+        "stone",
+        "red",
+        "orange",
+        "amber",
+        "yellow",
+        "lime",
+        "green",
+        "emerald",
+        "teal",
+        "cyan",
+        "sky",
+        "blue",
+        "indigo",
+        "violet",
+        "purple",
+        "fuchsia",
+        "pink",
+        "rose",
+        "brand",
+      ];
+
+      let colorValues = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+
+      function getRandomColor() {
+        let randomColorName = colorNames.at(
+          Math.floor(Math.random() * colorNames.length)
+        );
+
+        let randomColorValue;
+
+        if (randomColorName === "brand") {
+          let brandColorValues = ["", 50];
+          randomColorValue = brandColorValues.at(
+            Math.floor(Math.random() * brandColorValues.length)
+          );
+        } else {
+          randomColorValue = colorValues.at(
+            Math.floor(Math.random() * colorValues.length)
+          );
+        }
+
+        return `var(--${randomColorName}-${randomColorValue})`;
+      }
+
+      document.querySelector("button").addEventListener("click", () => {
+        document.body.style.background = getRandomColor();
+      });
+    </script>
+  </body>
 </html>
