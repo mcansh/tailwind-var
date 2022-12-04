@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "tailwindcss -o dist/index.css --watch",
-    "build": "tailwindcss -o dist/index.css"
+    "build": "tailwindcss -o dist/index.css && cp src/index.html dist/index.html"
   },
   "devDependencies": {
     "@mcansh/tailwind-var": "workspace:*",

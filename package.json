@@ -2,6 +2,10 @@
   "private": true,
   "repository": "mcansh/tailwind-var",
   "license": "MIT",
+  "workspaces": [
+    "example",
+    "packages/*"
+  ],
   "scripts": {
     "test": "pnpm --filter ./packages/* test --if-present",
     "format": "prettier --write --ignore-path .gitignore ."
